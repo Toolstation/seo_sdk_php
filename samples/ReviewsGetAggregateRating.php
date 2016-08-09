@@ -1,7 +1,8 @@
 <?php
+use Bazaarvoice\Bazaarvoice;
 //Please provide cloud_key, bv_root_folder and subject_id
-require('bvseosdk.php');
-$bv = new BV(array(
+require('../vendor/autoload.php');
+$bv = new \Bazaarvoice\Bazaarvoice(array(
   'bv_root_folder' => '',
   'subject_id' => '',
   'cloud_key' => '',

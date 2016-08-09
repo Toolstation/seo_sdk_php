@@ -1,8 +1,8 @@
 <?php
-//Please provide cloud_key and bv_root_folder
-require('bvseosdk.php');
-
-$bv = new BV(array(
+use Bazaarvoice\Bazaarvoice;
+//Please provide cloud_key, bv_root_folder and page_url
+require('../vendor/autoload.php');
+$bv = new \Bazaarvoice\Bazaarvoice(array(
     'bv_root_folder' => '',
     'cloud_key' => '',
     'page_url' => '',

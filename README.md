@@ -1,4 +1,6 @@
-# Bazaarvoice SEO SDK for PHP
+# Bazaarvoice SEO SDK for PHP by Alltricks
+
+**It's a simple upgrade for using PSR and composer autoload**
 
 This repository contains the codebase for the Bazaarvoice SEO SDK for PHP. Find
 out more about Bazaarvoice SEO at [Bazaarvoice Knowledge][1].

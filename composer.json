@@ -1,0 +1,29 @@
+
+{
+  "name": "bazaarvoice/php-sdk",
+  "type": "library",
+  "description": "Bazaarvoice php sdk",
+  "keywords": [
+    "bazaarvoice",
+    "api"
+  ],
+  "homepage": "https://github.com/alltricks/seo_sdk_php",
+  "authors": [
+    {
+      "name": "Bazaarvoice Team",
+      "email": "seo-sdk-owners@bazaarvoice.com"
+    },
+    {
+      "name": "Alltricks tech Team",
+      "email": "devs@alltricks.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bazaarvoice\\": "src/Bazaarvoice"
+    }
+  }
+}
