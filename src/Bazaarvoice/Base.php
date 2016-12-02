@@ -457,7 +457,7 @@ class Base
     private function _fetchSeoContent($resource) {
         if(is_callable($this->fetchMethod)) {
             $method = $this->fetchMethod;
-            return $this->fetchMethod($resource, $this, $this->_getPageNumber());
+            return $method($resource, $this, $this->_getPageNumber());
         } else if ($this->config['load_seo_files_locally']) {
             return $this->_fetchFileContent($resource);
         } else {
