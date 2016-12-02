@@ -21,6 +21,8 @@ class Base
     /**
      * Alternative method for fetching content
      * This can be used for fetching data from a database etc.
+     * Method signature:
+     *   fetchMethod($url, $bazzarVoice, $pageNumber)
      *
      * @var callable
      */
@@ -33,6 +35,7 @@ class Base
      */
     public function setFetchMethod($fetchMethod) {
         $this->fetchMethod = $fetchMethod;
+        return $this;
     }
 
     public function __construct($params = array())
@@ -453,9 +456,9 @@ class Base
      */
     private function _fetchSeoContent($resource) {
         if(is_callable($this->fetchMethod)) {
-            return $this->fetchMethod($resource);
-        }
-        else if ($this->config['load_seo_files_locally']) {
+            $method = $this->fetchMethod;
+            return $this->fetchMethod($resource, $this, $this->_getPageNumber());
+        } else if ($this->config['load_seo_files_locally']) {
             return $this->_fetchFileContent($resource);
         } else {
             return $this->_fetchCloudContent($resource);
@@ -618,7 +621,9 @@ class Base
             // contents.
             htmlspecialchars(
                 $this->config['base_url'] . $page_url_query_prefix,
-                ENT_QUOTES | ENT_HTML5,
+
+                //K.Hards - Changed to make PHP 5.3 compatable
+                ENT_QUOTES | ENT_HTML401 /*| ENT_HTML5*/,
                 $this->config['charset'],
                 // Don't double-encode.
                 false
