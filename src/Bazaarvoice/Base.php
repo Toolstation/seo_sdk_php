@@ -31,7 +31,7 @@ class Base
      *
      * @param callable $fetchMethod
      */
-    public function setFetchMethod(callable $fetchMethod) {
+    public function setFetchMethod($fetchMethod) {
         $this->fetchMethod = $fetchMethod;
     }
 
