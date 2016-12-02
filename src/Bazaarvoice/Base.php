@@ -18,6 +18,23 @@ class Base
 {
     private $msg = '';
 
+    /**
+     * Alternative method for fetching content
+     * This can be used for fetching data from a database etc.
+     *
+     * @var callable
+     */
+    private $fetchMethod = null;
+
+    /**
+     * Set the fetchMethod
+     *
+     * @param callable $fetchMethod
+     */
+    public function setFetchMethod(callable $fetchMethod) {
+        $this->fetchMethod = $fetchMethod;
+    }
+
     public function __construct($params = array())
     {
         $this->validateParams($params);
@@ -435,7 +452,10 @@ class Base
      * Return a SEO content from local or distant sourse.
      */
     private function _fetchSeoContent($resource) {
-        if ($this->config['load_seo_files_locally']) {
+        if(is_callable($this->fetchMethod)) {
+            return $this->fetchMethod($resource);
+        }
+        else if ($this->config['load_seo_files_locally']) {
             return $this->_fetchFileContent($resource);
         } else {
             return $this->_fetchCloudContent($resource);

@@ -29,6 +29,31 @@ namespace Bazaarvoice;
  */
 class Bazaarvoice
 {
+     /**
+      *  @var Reviews
+      */
+     public $reviews;
+
+     /**
+      * @var Questions
+      */
+     public $questions;
+
+     /**
+      * @var Stories
+      */
+     public $stories;
+
+     /**
+      * @var Spotlights
+      */
+     public $spotlights;
+
+     /**
+      * @var SellerRatings
+      */
+     public $sellerratings;
+
     /**
      * Bazaarvoice Class Constructor
      *
