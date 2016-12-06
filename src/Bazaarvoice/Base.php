@@ -623,7 +623,7 @@ class Base
                 $this->config['base_url'] . $page_url_query_prefix,
 
                 //K.Hards - Changed to make PHP 5.3 compatable
-                ENT_QUOTES | ENT_HTML401 /*| ENT_HTML5*/,
+                ENT_QUOTES /*| ENT_HTML5*/,
                 $this->config['charset'],
                 // Don't double-encode.
                 false

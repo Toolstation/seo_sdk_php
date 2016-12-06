@@ -52,7 +52,7 @@ class Utility
         if (empty($start)) {
             $start = microtime(1);
         }
-        register_tick_function('tick_timer', $start, $exec_time, $is_bot);
+        register_tick_function('Bazaarvoice\tick_timer', $start, $exec_time, $is_bot);
     }
 
     /**
@@ -61,7 +61,7 @@ class Utility
      * @access public
      */
     public static function stopTimer() {
-        unregister_tick_function('tick_timer');
+        unregister_tick_function('Bazaarvoice\tick_timer');
     }
 
     /**
