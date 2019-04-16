@@ -63,7 +63,9 @@ class Base
         ;
 
         // set up combined user agent to be passed to cloud storage (if needed)
-        $this->config['user_agent'] = "bv_php_sdk/3.2.0;" . $_SERVER['HTTP_USER_AGENT'];
+        if(isset($_SERVER['HTTP_USER_AGENT'])){
+            $this->config['user_agent'] = "bv_php_sdk/3.2.0;" . $_SERVER['HTTP_USER_AGENT'];
+        }
     }
 
     protected function validateParams($params)
@@ -287,7 +289,9 @@ class Base
         }
 
         // search the user agent string for an indication if this is a search bot or not
-        return mb_eregi('(' . $this->config['crawler_agent_pattern'] . ')', $_SERVER['HTTP_USER_AGENT']);
+        if(isset($_SERVER['HTTP_USER_AGENT'])){
+            return mb_eregi('(' . $this->config['crawler_agent_pattern'] . ')', $_SERVER['HTTP_USER_AGENT']);
+        }
     }
 
     /**

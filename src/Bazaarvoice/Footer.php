@@ -114,7 +114,9 @@ class Footer
 
         $footer .= "\n" . '   <li data-bvseo="en">' . $sdk_enabled . '</li>';
         $footer .= "\n" . '   <li data-bvseo="pn">bvseo-' . $this->base->config['page'] . '</li>';
-        $footer .= "\n" . '   <li data-bvseo="userAgent">' . $_SERVER['HTTP_USER_AGENT'] . '</li>';
+        if(isset($_SERVER['HTTP_USER_AGENT'])){
+            $footer .= "\n" . '   <li data-bvseo="userAgent">' . $_SERVER['HTTP_USER_AGENT'] . '</li>';
+        }
         $footer .= "\n" . '   <li data-bvseo="pageURI">' . $this->base->config['page_url'] . '</li>';
         $footer .= "\n" . '   <li data-bvseo="baseURI">' . $this->base->config['base_url'] . '</li>';
         $footer .= "\n" . '   <li data-bvseo="contentType">' . $content_type . '</li>';
